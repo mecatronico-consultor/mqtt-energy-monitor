@@ -67,3 +67,9 @@ Screenshot of the data output in the terminal, showing real-time measurements:
 ### Physical Implementation
 View of the provisional connection and assembly of the components:
 ![Physical implementation of the ESP32 and PZEM-004T energy monitor](<images/physical implementation.jpg>)
+
+### Schematic
+Schematic taken from datasheet for reference, just consider TX and RX for ESP32:
+![schematic1](images/schematic.png)
+![schematic1](images/schematic2.png)
+
