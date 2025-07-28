@@ -30,24 +30,21 @@ Librería PZEM004Tv30
 
 Librería PubSubClient
 
-🛠️ Configuración
-Antes de compilar y subir el firmware, debes modificar el código para incluir tus propias credenciales en las siguientes líneas:
+## 📸 Galería de Implementación y Datos
 
-C++
-// Configuración de tu red WiFi
+### Monitoreando Corriente
+Una vista detallada de cómo se registra la corriente a lo largo del tiempo en Home Assistant:
+![Gráfica de Corriente en Home Assistant](images/current_graphic.jpg)
 
-const char* ssid = "TU_WIFI_SSID";
+### Dashboard de Home Assistant
+Así se integra y visualiza la información del PZEM-004T en el dashboard principal de Home Assistant:
+![Dashboard de Home Assistant con datos del PZEM](images/dashboard.jpg)
 
-const char* password = "TU_WIFI_PASSWORD";
+### Datos en Terminal
+Captura de pantalla de la salida de datos en el terminal, mostrando las mediciones en tiempo real:
+![Salida de datos del PZEM-004T en el terminal](images/data.jpg)
 
-// Configuración de tu Broker MQTT
-
-const char* mqtt_server = "IP_DE_TU_BROKER"; // Ej: "192.168.1.100"
-
-const int mqtt_port = 1883;
-
-const char* mqtt_user = "TU_USUARIO_MQTT";
-
-const char* mqtt_pass = "TU_PASSWORD_MQTT";
-
+### Implementación Física
+Vista de la conexión y el montaje provisional de los componentes:
+![Implementación física del monitor de energía con ESP32 y PZEM-004T](<images/physical implementation.jpg>)
 
