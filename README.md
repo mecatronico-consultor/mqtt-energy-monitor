@@ -1,50 +1,69 @@
+---
 # mqtt-energy-monitor
-Monitor de Energía con ESP32 y PZEM-004T para Home Assistant
-Este repositorio contiene el código fuente (firmware) para construir un monitor de consumo eléctrico DIY. Utiliza un microcontrolador ESP32 para leer mediciones de un sensor PZEM-004T v3.0 y las envía a un broker MQTT, permitiendo una integración perfecta con Home Assistant y su panel de energía.
+ESP32 and PZEM-004T Energy Monitor for Home Assistant
 
-⚙️ Características Principales
-Lectura en tiempo real de Voltaje (V), Corriente (A), Potencia Activa (W) y Energía Acumulada (kWh).
+This repository contains the source code (firmware) to build a DIY electricity consumption monitor. It uses an ESP32 microcontroller to read measurements from a PZEM-004T v3.0 sensor and sends them to an MQTT broker, allowing seamless integration with Home Assistant and its energy dashboard.
 
-Comunicación inalámbrica a través de Wi-Fi.
+---
 
-Protocolo MQTT para una comunicación ligera y eficiente con la domótica.
+## ⚙️ Key Features  (Características Principales)
 
-Fácil integración con el dashboard de Energía de Home Assistant.
+* **Real-time reading** of Voltage (V), Current (A), Active Power (W), and Accumulated Energy (kWh).
+* Wireless communication via **Wi-Fi**.
+* **MQTT protocol** for light and efficient communication with home automation systems.
+* Easy integration with the Home Assistant **Energy dashboard**.
+* **Low cost** and **100% local control**, without reliance on cloud services.
 
-Bajo costo y control 100% local, sin depender de servicios en la nube.
+---
 
-🔧 Componentes Necesarios
-Hardware
-Microcontrolador ESP32.
+## 🔧 Required Components (Componentes Necesarios)
 
-Sensor de energía no invasivo PZEM-004T v3.0 con su respectiva bobina de corriente.
+### Hardware
 
-Fuente de alimentación para el ESP32 (e.g., 5V USB).
+* **ESP32** microcontroller.
+* **PZEM-004T v3.0** non-invasive energy sensor with its current transformer coil.
+* Power supply for the ESP32 (e.g., 5V USB).
+* Cables for connections.
 
-Cables para las conexiones.
+### Software and Libraries
 
-Software y Librerías
-Arduino IDE o PlatformIO.
+* **Arduino IDE** or **PlatformIO**.
+* **`PZEM004Tv30`** Library
+* **`PubSubClient`** Library
 
-Librería PZEM004Tv30
+---
 
-Librería PubSubClient
+## 🛠️ Configuration (Configuración)
 
-## 📸 Galería de Implementación y Datos
+Before compiling and uploading the firmware, you must modify the code to include your own credentials in the following lines:
 
-### Monitoreando Corriente
-Una vista detallada de cómo se registra la corriente a lo largo del tiempo en Home Assistant:
-![Gráfica de Corriente en Home Assistant](images/current_graphic.jpg)
+```cpp
+// Your WiFi network configuration
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
 
-### Dashboard de Home Assistant
-Así se integra y visualiza la información del PZEM-004T en el dashboard principal de Home Assistant:
-![Dashboard de Home Assistant con datos del PZEM](images/dashboard.jpg)
+// Your MQTT Broker configuration
+const char* mqtt_server = "YOUR_BROKER_IP"; // E.g.: "192.168.1.100"
+const int mqtt_port = 1883;
+const char* mqtt_user = "YOUR_MQTT_USERNAME";
+const char* mqtt_pass = "YOUR_MQTT_PASSWORD";
+```
+---
 
-### Datos en Terminal
-Captura de pantalla de la salida de datos en el terminal, mostrando las mediciones en tiempo real:
-![Salida de datos del PZEM-004T en el terminal](images/data.jpg)
+## 📸 Implementation & Data Gallery (Galería de Implementación y Datos)
 
-### Implementación Física
-Vista de la conexión y el montaje provisional de los componentes:
-![Implementación física del monitor de energía con ESP32 y PZEM-004T](<images/physical implementation.jpg>)
+### Monitoring Current
+A detailed view of how current is recorded over time in Home Assistant:
+![Current Graph in Home Assistant](images/current_graphic.jpg)
 
+### Home Assistant Dashboard
+This shows how the PZEM-004T information is integrated and visualized in the main Home Assistant dashboard:
+![Home Assistant Dashboard with PZEM data](images/dashboard.jpg)
+
+### Terminal Data
+Screenshot of the data output in the terminal, showing real-time measurements:
+![PZEM-004T data output in terminal](images/data.jpg)
+
+### Physical Implementation
+View of the provisional connection and assembly of the components:
+![Physical implementation of the ESP32 and PZEM-004T energy monitor](<images/physical implementation.jpg>)
